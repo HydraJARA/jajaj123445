@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Registrar Nuevo Visitante</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo *</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required 
+                                   placeholder="Ingrese nombre completo">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="identificacion" class="form-label">Identificación *</label>
+                            <input type="text" class="form-control" id="identificacion" name="identificacion" required 
+                                   placeholder="Número de identificación">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="empresa" class="form-label">Empresa</label>
+                        <input type="text" class="form-control" id="empresa" name="empresa" 
+                               placeholder="Nombre de la empresa (opcional)">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="motivo" class="form-label">Motivo de la Visita *</label>
+                        <textarea class="form-control" id="motivo" name="motivo" rows="3" required 
+                                  placeholder="Describa el motivo de la visita"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="generar_credencial" name="generar_credencial" value="si">
+                            <label class="form-check-label" for="generar_credencial">
+                                Generar credencial de acceso automáticamente
+                            </label>
+                        </div>
+                        <div class="form-text">
+                            La credencial tendrá una validez de 8 horas
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Guardar Visitante</button>
+                        <a href="{{ url_for('listar_visitantes') }}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

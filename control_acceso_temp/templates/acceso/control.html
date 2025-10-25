@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card" style="background:#70B2B2;color:#016B61;">
+            <div class="card-header" style="background:#016B61;color:#E5E9C5;">
+                <h4 class="mb-0"><i class="bi bi-door-open"></i> Control de Acceso</h4>
+            </div>
+            <div class="card-body">
+                <!-- Información de Horario -->
+                <div class="alert" style="background:#E5E9C5;color:#016B61;border-radius:8px;">
+                    <h6><i class="bi bi-clock"></i> Horario de Acceso</h6>
+                    <p class="mb-0">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                </div>
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="codigo" class="form-label">Código de Acceso</label>
+                        <input type="text" class="form-control form-control-lg text-uppercase" 
+                               id="codigo" name="codigo" required autofocus 
+                               placeholder="Ingrese el código de 8 caracteres">
+                        <div class="form-text">Ingrese el código de la credencial del visitante</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label" style="color:#016B61;">Tipo de Registro</label>
+                        <div class="d-grid gap-2 d-md-flex">
+                            <div class="form-check form-check-inline flex-fill">
+                                <input class="form-check-input" type="radio" name="tipo" id="entrada" value="entrada" checked>
+                                <label class="form-check-label btn" style="background:#016B61;color:#E5E9C5;width:100%;" for="entrada">
+                                    <i class="bi bi-box-arrow-in-right"></i> Entrada
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline flex-fill">
+                                <input class="form-check-input" type="radio" name="tipo" id="salida" value="salida">
+                                <label class="form-check-label btn" style="background:#9ECFD4;color:#016B61;width:100%;" for="salida">
+                                    <i class="bi bi-box-arrow-right"></i> Salida
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg w-100" style="background:linear-gradient(90deg,#016B61,#70B2B2);color:#E5E9C5;">
+                        <i class="bi bi-check-circle"></i> Registrar Acceso
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Información Adicional -->
+        <div class="card mt-4" style="background:#70B2B2;color:#016B61;">
+            <div class="card-header" style="background:#016B61;color:#E5E9C5;">
+                <h6 class="mb-0">Instrucciones</h6>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle" style="color:#016B61;"></i> <strong>Entrada:</strong> Registrar cuando el visitante ingresa</li>
+                    <li><i class="bi bi-check-circle" style="color:#016B61;"></i> <strong>Salida:</strong> Registrar cuando el visitante sale</li>
+                    <li><i class="bi bi-exclamation-triangle" style="color:#9ECFD4;"></i> Las credenciales expiran automáticamente en 8 horas</li>
+                    <li><i class="bi bi-bell" style="color:#9ECFD4;"></i> Los accesos fuera de horario generan alertas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

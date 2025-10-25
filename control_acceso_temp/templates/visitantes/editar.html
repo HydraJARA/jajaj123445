@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Editar Visitante</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo *</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" 
+                                   value="{{ visitante.nombre }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="identificacion" class="form-label">Identificación *</label>
+                            <input type="text" class="form-control" id="identificacion" name="identificacion" 
+                                   value="{{ visitante.identificacion }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="empresa" class="form-label">Empresa</label>
+                        <input type="text" class="form-control" id="empresa" name="empresa" 
+                               value="{{ visitante.empresa or '' }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="motivo" class="form-label">Motivo de la Visita *</label>
+                        <textarea class="form-control" id="motivo" name="motivo" rows="3" required>{{ visitante.motivo }}</textarea>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Actualizar Visitante</button>
+                        <a href="{{ url_for('listar_visitantes') }}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
